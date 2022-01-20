@@ -1,5 +1,6 @@
 package com.maschago.githubusersapp.di
 
+import com.google.gson.GsonBuilder
 import com.maschago.githubusersapp.service.ApiService
 import com.maschago.githubusersapp.repository.RestfulAPIRepositoryImpl
 import dagger.Module
@@ -35,7 +36,7 @@ object NetworkModule {
     @Singleton
     @Provides
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
-        .addConverterFactory(GsonConverterFactory.create())
+        .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))
         .baseUrl(BASE_URL)
         .client(okHttpClient)
         .build()

@@ -7,4 +7,5 @@ sealed class Screen(val route: String, val screenName: String) {
 
         const val ARG_USER_ID: String = "userId"
     }
+    object ErrorDetail : Screen ("error", "errorDetails")
 }

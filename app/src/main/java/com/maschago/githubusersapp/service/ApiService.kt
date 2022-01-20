@@ -1,15 +1,17 @@
 package com.maschago.githubusersapp.service
 
+import com.maschago.githubusersapp.User
 import com.maschago.githubusersapp.Users
-import com.maschago.githubusersapp.model.UsersResponse
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Path
 
 interface ApiService {
 
-    @GET("users")
+    @GET("users?per_page=100")
     suspend fun getUsers(): Response<Users>
 
-    @GET("users")
-    suspend fun getAllUsers(): Response<UsersResponse>
+    @GET("users/{userId}")
+    suspend fun getUserDetails(@Path(value = "userId") id: String): Response<User>
+
 }

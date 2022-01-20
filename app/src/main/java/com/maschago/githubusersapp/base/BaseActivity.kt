@@ -7,10 +7,7 @@ import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import androidx.navigation.compose.rememberNavController
-import com.maschago.githubusersapp.navigaton.AppNavigation
 import com.maschago.githubusersapp.ui.theme.ComposeAppTheme
-import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.InternalCoroutinesApi
 import javax.inject.Inject
@@ -18,7 +15,7 @@ import javax.inject.Inject
 @ExperimentalAnimationApi
 @ExperimentalCoroutinesApi
 @InternalCoroutinesApi
-abstract class BaseActivity <T: BaseViewModel> : ComponentActivity() {
+abstract class BaseActivity<T : BaseViewModel> : ComponentActivity() {
 
     @Inject
     lateinit var uiRepo: UIRepo<T>
@@ -44,7 +41,7 @@ abstract class BaseActivity <T: BaseViewModel> : ComponentActivity() {
         }
     }
 
-    abstract fun viewModel() : T
+    abstract fun viewModel(): T
 
     open fun surfaceColor() = Color(0xFFEEEEEE)
 

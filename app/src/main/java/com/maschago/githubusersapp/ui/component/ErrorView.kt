@@ -14,7 +14,7 @@ import com.maschago.githubusersapp.base.BaseViewModel
 import java.util.*
 
 @Composable
-fun ErrorView(error: String) {
+fun ErrorView(error: String, onButtonClick: () -> Unit) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -25,7 +25,7 @@ fun ErrorView(error: String) {
             Button(
                 modifier = Modifier.padding(16.dp, 32.dp, 16.dp, 0.dp),
                 onClick = {
-                    //retry action
+                   onButtonClick()
                 }
             ) {
                 Text("Retry".uppercase(Locale.getDefault()), modifier = Modifier.padding(4.dp))

@@ -7,5 +7,6 @@ import kotlinx.coroutines.flow.Flow
 interface RestfulAPIRepository {
     suspend fun fetchAllUsers(): NetworkResult<List<User>>
 
-    fun getAllNotes(): Flow<NetworkResult<List<User>>>
+    suspend fun fetchUserDetails(userId : String): NetworkResult<User>
+
 }
