@@ -2,8 +2,8 @@ import org.gradle.api.artifacts.dsl.DependencyHandler
 
 object AppDependencies {
     // Generic
-    val kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlin}"
-    val kotlinStdLibJdk7 = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
+    private val kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlin}"
+    private val kotlinStdLibJdk7 = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
 
     private val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
     private val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
@@ -59,7 +59,7 @@ object AppDependencies {
     // Lifecycle
     private val lifecycleViewModelCompose =
         "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.lifecycleViewModelComposeVersion}"
-    private val hiltLifecycleViewModel = "androidx.hilt:hilt-lifecycle-viewmodel:${Versions.hilt_lifecycle_viewmodel}"
+    private val hiltLifecycleViewModel = "androidx.hilt:hilt-lifecycle-viewmodel:${Versions.hiltLifecycleViewmodel}"
 
     // Test
     private val junit = "junit:junit:${Versions.junit}"

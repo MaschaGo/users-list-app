@@ -5,7 +5,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
-import com.maschago.githubusersapp.User
+import com.maschago.githubusersapp.model.User
 
 
 @Composable

@@ -1,4 +1,4 @@
-package com.maschago.githubusersapp
+package com.maschago.githubusersapp.model
 
 import com.google.gson.annotations.SerializedName
 

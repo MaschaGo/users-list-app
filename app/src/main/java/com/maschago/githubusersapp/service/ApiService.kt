@@ -1,7 +1,7 @@
 package com.maschago.githubusersapp.service
 
-import com.maschago.githubusersapp.User
-import com.maschago.githubusersapp.Users
+import com.maschago.githubusersapp.model.User
+import com.maschago.githubusersapp.model.Users
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path

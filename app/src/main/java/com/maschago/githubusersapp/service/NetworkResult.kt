@@ -6,7 +6,7 @@ sealed class NetworkResult<out T> {
 }
 
 inline fun <I, O> NetworkResult<I>.map(mapper: (I) -> O): NetworkResult<O> {
-    return when(this) {
+    return when (this) {
         is NetworkResult.Payload -> NetworkResult.Payload(mapper(this.payload))
         is NetworkResult.Error -> NetworkResult.Error(this.error)
     }

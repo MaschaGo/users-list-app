@@ -9,17 +9,15 @@ import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import coil.compose.rememberImagePainter
 import coil.transform.CircleCropTransformation
-import com.maschago.githubusersapp.User
+import com.maschago.githubusersapp.model.User
 import com.maschago.githubusersapp.ui.theme.Blue300
 
 @Composable
@@ -39,7 +37,7 @@ fun UserCard(user: User, onUserClick: () -> Unit) {
             modifier = Modifier
                 .padding(16.dp)
         ) {
-            Row() {
+            Row {
                 val painter =
                     rememberImagePainter(data = user.avatarUrl,
                         builder = {

@@ -2,8 +2,8 @@ package com.maschago.githubusersapp.di
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import com.maschago.githubusersapp.base.UIRepo
-import com.maschago.githubusersapp.ui.ScreenUIRepo
 import com.maschago.githubusersapp.ui.MainViewModel
+import com.maschago.githubusersapp.ui.ScreenUIRepo
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

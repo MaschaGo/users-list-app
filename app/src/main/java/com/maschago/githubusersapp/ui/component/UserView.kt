@@ -13,7 +13,7 @@ import androidx.compose.ui.unit.dp
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
 import coil.transform.CircleCropTransformation
-import com.maschago.githubusersapp.User
+import com.maschago.githubusersapp.model.User
 import com.maschago.githubusersapp.ui.theme.Blue300
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 

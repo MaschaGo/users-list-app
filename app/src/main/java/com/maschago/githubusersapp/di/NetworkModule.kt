@@ -1,8 +1,8 @@
 package com.maschago.githubusersapp.di
 
 import com.google.gson.GsonBuilder
-import com.maschago.githubusersapp.service.ApiService
 import com.maschago.githubusersapp.repository.RestfulAPIRepositoryImpl
+import com.maschago.githubusersapp.service.ApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -47,7 +47,6 @@ class ScreenUIRepo @Inject constructor() : UIRepo<MainViewModel> {
         }
     }
 
-
     companion object {
         const val NAV_HOST_ROUTE = "main-route"
     }

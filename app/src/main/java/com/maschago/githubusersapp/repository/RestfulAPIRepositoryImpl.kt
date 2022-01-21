@@ -1,6 +1,6 @@
 package com.maschago.githubusersapp.repository
 
-import com.maschago.githubusersapp.User
+import com.maschago.githubusersapp.model.User
 import com.maschago.githubusersapp.service.ApiService
 import com.maschago.githubusersapp.service.NetworkResult
 import com.maschago.githubusersapp.toNetworkResult

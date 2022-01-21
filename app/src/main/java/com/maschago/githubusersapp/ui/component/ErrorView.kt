@@ -10,7 +10,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.maschago.githubusersapp.base.BaseViewModel
 import java.util.*
 
 @Composable
@@ -20,7 +19,7 @@ fun ErrorView(error: String, onButtonClick: () -> Unit) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        item { Text(error, modifier = Modifier.padding(4.dp)) }
+        item { Text(error, modifier = Modifier.padding(16.dp)) }
         item {
             Button(
                 modifier = Modifier.padding(16.dp, 32.dp, 16.dp, 0.dp),

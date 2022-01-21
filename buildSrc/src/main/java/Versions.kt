@@ -23,7 +23,7 @@ object Versions {
 
     //Hilt
     const val hilt = "2.40.1"
-    const val hilt_lifecycle_viewmodel = "1.0.0-alpha03"
+    const val hiltLifecycleViewmodel = "1.0.0-alpha03"
     const val jetpackHiltVersion = "1.0.0"
 
     //Navigation

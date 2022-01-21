@@ -8,6 +8,7 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.ArrowBack
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -17,6 +18,8 @@ import com.maschago.githubusersapp.ui.component.ConnectivityStatus
 import com.maschago.githubusersapp.ui.component.ErrorView
 import com.maschago.githubusersapp.ui.component.UserView
 import com.maschago.githubusersapp.ui.theme.Blue300
+import com.maschago.githubusersapp.utils.ConnectionState
+import com.maschago.githubusersapp.utils.connectivityState
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @ExperimentalCoilApi
@@ -29,13 +32,13 @@ fun DetailsScreen(navController: NavHostController, viewModel: DetailViewModel) 
     val user = viewModel.user.value
     val error = viewModel.errorMessage.value
 
-    val userName : String = user?.login ?: ""
+    val userName: String = user?.login ?: ""
 
     Scaffold(
         topBar = {
             TopAppBar(
                 title = {
-               Text("GitHub User $userName", color = Color.White)
+                    Text("GitHub User $userName", color = Color.White)
                 },
                 navigationIcon = {
                     IconButton(onClick = {
@@ -55,19 +58,25 @@ fun DetailsScreen(navController: NavHostController, viewModel: DetailViewModel) 
             ) {
                 ConnectivityStatus()
 
-                if (user == null && error.isNotEmpty()) {
-                    ErrorView(error) {
+                val connection by connectivityState()
+                val isConnected = connection === ConnectionState.Available
+
+                if (isConnected) {
+                    if (user == null && error.isNotEmpty()) {
+                        ErrorView(error) {
+                            viewModel.retryLoadingUserDetails()
+                        }
+                    } else if (user == null && error.isEmpty()) {
                         viewModel.retryLoadingUserDetails()
-                    }
-                } else if (user == null && error.isEmpty()) {
-                    ErrorView("Something went wrong") {
-                        viewModel.retryLoadingUserDetails()
+                    } else {
+                        UserView(user = user!!)
                     }
                 } else {
-                    UserView(user = user!!)
+                    ErrorView("Please check your internet connection and try again.") {
+                        viewModel.retryLoadingUserDetails()
+                    }
                 }
             }
-
         }
     )
 

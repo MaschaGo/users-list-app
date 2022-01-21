@@ -4,8 +4,8 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
-import com.maschago.githubusersapp.User
 import com.maschago.githubusersapp.base.BaseViewModel
+import com.maschago.githubusersapp.model.User
 import com.maschago.githubusersapp.navigaton.Screen
 import com.maschago.githubusersapp.repository.RestfulAPIRepository
 import com.maschago.githubusersapp.service.NetworkResult
@@ -20,6 +20,9 @@ class DetailViewModel @Inject constructor(
     private val state: SavedStateHandle,
 ) : BaseViewModel() {
 
+    val user: MutableState<User?> = mutableStateOf(null)
+    val errorMessage: MutableState<String> = mutableStateOf(String())
+
     private var savedUserId: String = ""
 
     init {
@@ -28,10 +31,6 @@ class DetailViewModel @Inject constructor(
             loadUserDetails(userId)
         }
     }
-
-
-    val user: MutableState<User?> = mutableStateOf(null)
-    val errorMessage: MutableState<String> = mutableStateOf(String())
 
     private fun loadUserDetails(userId: String) {
         viewModelScope.launch {
@@ -46,6 +45,8 @@ class DetailViewModel @Inject constructor(
                 }
             } catch (e: Exception) {
                 Timber.e("Exception: ${e}, ${e.cause}")
+                errorMessage.value = "Something went wrong.\n" +
+                        "Exception: ${e}, ${e.cause}"
                 e.printStackTrace()
             }
         }

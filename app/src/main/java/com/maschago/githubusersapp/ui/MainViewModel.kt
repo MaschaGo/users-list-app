@@ -3,8 +3,8 @@ package com.maschago.githubusersapp.ui
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.viewModelScope
-import com.maschago.githubusersapp.User
 import com.maschago.githubusersapp.base.BaseViewModel
+import com.maschago.githubusersapp.model.User
 import com.maschago.githubusersapp.repository.RestfulAPIRepository
 import com.maschago.githubusersapp.service.NetworkResult
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -37,6 +37,8 @@ class MainViewModel @Inject constructor(private val apiRepository: RestfulAPIRep
                 }
             } catch (e: Exception) {
                 Timber.e("Exception: ${e}, ${e.cause}")
+                errorMessage.value = "Something went wrong.\n" +
+                        "Exception: ${e}, ${e.cause}"
                 e.printStackTrace()
             }
         }
