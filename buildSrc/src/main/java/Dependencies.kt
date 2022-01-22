@@ -22,6 +22,7 @@ object AppDependencies {
     private val composeMaterial = "androidx.compose.material:material:${Versions.compose}"
     private val composeUiTooling = "androidx.compose.ui:ui-tooling:1.0.0-beta09"
     private val navigationCompose = "androidx.navigation:navigation-compose:${Versions.navCompose}"
+    private val androidPaging = "androidx.paging:paging-runtime:${Versions.pagingVersion}"
 
     private val datastore = "androidx.datastore:datastore-preferences:${Versions.datastore}"
 
@@ -88,6 +89,7 @@ object AppDependencies {
         add(composeMaterial)
         add(composeUiTooling)
         add(navigationCompose)
+        add(androidPaging)
         add(activityCompose)
         add(lifecycleViewModelCompose)
         add(hiltLifecycleViewModel)

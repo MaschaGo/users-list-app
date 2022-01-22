@@ -2,6 +2,7 @@ package com.maschago.githubusersapp.ui
 
 import android.os.Bundle
 import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.HiltViewModelFactory
@@ -20,6 +21,7 @@ import javax.inject.Inject
 @ExperimentalCoroutinesApi
 class ScreenUIRepo @Inject constructor() : UIRepo<MainViewModel> {
 
+    @ExperimentalFoundationApi
     @ExperimentalCoilApi
     @ExperimentalCoroutinesApi
     @ExperimentalAnimationApi

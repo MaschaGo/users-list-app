@@ -1,6 +1,7 @@
 package com.maschago.githubusersapp.ui
 
 import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -8,6 +9,7 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -22,6 +24,7 @@ import com.maschago.githubusersapp.utils.ConnectionState
 import com.maschago.githubusersapp.utils.connectivityState
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
+@ExperimentalFoundationApi
 @ExperimentalCoroutinesApi
 @ExperimentalAnimationApi
 @Composable
@@ -44,17 +47,17 @@ fun MainScreen(navController: NavHostController, viewModel: MainViewModel) {
             val isConnected = connection === ConnectionState.Available
 
             if (isConnected) {
-                val users = viewModel.usersList.value
+                val data = viewModel.newsState.collectAsState()
                 val error = viewModel.errorMessage.value
 
-                if (users.isEmpty() && error.isNotEmpty()) {
+                if (data.value.users.isEmpty() && error.isNotEmpty()) {
                     ErrorView(error) {
                         viewModel.retryLoading()
                     }
-                } else if (users.isEmpty() && error.isEmpty()) {
+                } else if (data.value.users.isEmpty()  && error.isEmpty()) {
                     viewModel.retryLoading()
                 } else {
-                    UsersList(users) { user ->
+                    UsersList(viewModel, data.value.users) { user ->
                         navController.navigate(Screen.UsersDetail.route(user.login))
                     }
                 }

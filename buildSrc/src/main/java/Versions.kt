@@ -12,6 +12,8 @@ object Versions {
     const val lifecycleKtx = "2.4.0-alpha02"
     const val lifecycleViewModel = "2.3.1"
     const val lifecycleViewModelComposeVersion = "2.4.0"
+    const val pagingVersion = "3.1.0"
+
     const val timber = "4.7.1"
     const val loggingInterceptor = "4.9.1"
     const val activityKtx = "1.2.3"
