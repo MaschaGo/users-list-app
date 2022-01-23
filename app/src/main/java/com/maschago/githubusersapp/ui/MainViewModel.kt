@@ -20,6 +20,8 @@ class MainViewModel @Inject constructor(private val apiRepository: RestfulAPIRep
     val usersList: MutableState<List<User>> = mutableStateOf(ArrayList())
     val errorMessage: MutableState<String> = mutableStateOf(String())
 
+    //ToDo: use UI data state
+
     init {
         loadAllUsers()
     }

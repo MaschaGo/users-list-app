@@ -18,6 +18,8 @@ import javax.inject.Singleton
 object NetworkModule {
     private const val BASE_URL = "https://api.github.com"
 
+    //ToDo: add authentication. S. https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting
+
     @Singleton
     @Provides
     fun providesHttpLoggingInterceptor() = HttpLoggingInterceptor()
